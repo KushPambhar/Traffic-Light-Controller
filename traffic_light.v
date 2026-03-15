@@ -13,6 +13,8 @@ module traffic_light(clk,reset,red,green,yellow);
     parameter G_time = 7;
 
     reg[31:0] cnt;
+//Register
+    
     always @(posedge clk or negedge reset) begin
         if(!reset) begin
             ps<=R;
@@ -24,6 +26,8 @@ module traffic_light(clk,reset,red,green,yellow);
         end
     end
 
+// Output Decoding and Next State Decoding
+    
     always @(clk) begin
         case(ps)
             R : if(cnt == R_time) begin
